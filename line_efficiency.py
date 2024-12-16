@@ -22,7 +22,7 @@ Difference = st.number_input("Enter Difference (e.g., numerical value)", value=0
 conveyor_speed = st.number_input("Enter conveyor_speed (e.g., numerical value)", value=0.0)
 BCT = st.number_input("Enter BCT (e.g., numerical value)", value=0.0)
 DRR = st.number_input("Enter DRR (e.g., numerical value)", value=0.0)
-total_available time = st.number_input("Enter total_available time (e.g., numerical value)", value=0.0)
+total_available_time = st.number_input("Enter total_available_time (e.g., numerical value)", value=0.0)
 line_efficiency = st.number_input("Enter line_efficiency (e.g., numerical value)", value=0.0)
 loss_time = st.number_input("Enter loss_time (e.g., numerical value)", value=0.0)
 line_availability = st.number_input("Enter line_availability (e.g., numerical value)", value=0.0)
