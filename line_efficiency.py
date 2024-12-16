@@ -3,8 +3,19 @@ import pickle
 import pandas as pd
 
 # Load the trained model
-with open('updated_rf_model.pkl', 'rb') as file:
+with open('updated_rf_model.pkl', 'wb') as file:
+    pickle.dump(trained_model, file)
+with open('/path/to/updated_rf_model.pkl', 'rb') as file:
     model = pickle.load(file)
+import pickle
+try:
+    with open('updated_rf_model.pkl', 'rb') as file:
+        model = pickle.load(file)
+    print("Model loaded successfully!")
+except Exception as e:
+    print(f"Error loading model: {e}")
+
+
 
 # Title of the app
 st.title("Predict Target Using Your ML Model")
