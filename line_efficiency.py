@@ -2,18 +2,17 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-# Load the trained model
-with open('updated_rf_model.pkl', 'wb') as file:
-    pickle.dump(trained_model, file)
-with open('/path/to/updated_rf_model.pkl', 'rb') as file:
-    model = pickle.load(file)
-import pickle
+# Try loading the model
 try:
     with open('updated_rf_model.pkl', 'rb') as file:
         model = pickle.load(file)
-    print("Model loaded successfully!")
+    st.success("Model loaded successfully!")
+except FileNotFoundError:
+    st.error("Model file not found. Please check the file path.")
+except pickle.UnpicklingError:
+    st.error("Error unpickling the model. Ensure the file is a valid pickle file.")
 except Exception as e:
-    print(f"Error loading model: {e}")
+    st.error(f"An unexpected error occurred: {e}")
 
 
 
