@@ -22,7 +22,7 @@ Difference = st.number_input("Enter Difference (e.g., numerical value)", value=0
 conveyor_speed = st.number_input("Enter conveyor_speed (e.g., numerical value)", value=0.0)
 BCT = st.number_input("Enter BCT (e.g., numerical value)", value=0.0)
 DRR = st.number_input("Enter DRR (e.g., numerical value)", value=0.0)
-total_available_time = st.number_input("Enter total_available_time (e.g., numerical value)", value=0.0)
+total_available time = st.number_input("Enter total_available time (e.g., numerical value)", value=0.0)
 line_efficiency = st.number_input("Enter line_efficiency (e.g., numerical value)", value=0.0)
 loss_time = st.number_input("Enter loss_time (e.g., numerical value)", value=0.0)
 line_availability = st.number_input("Enter line_availability (e.g., numerical value)", value=0.0)
@@ -34,18 +34,18 @@ min_efficiency = st.number_input("Enter min_efficiency (e.g., numerical value)",
 input_data = pd.DataFrame({
     'Station_pitch': [Station_pitch],
     'Total_attendance_planned': [Total_attendance_planned],
-    'total_attendance_present': [total_attendance_present]
-    'Difference': [Difference]
-    'conveyor_speed': [conveyor_speed]
-    'BCT': [BCT]
-    'DRR': [DRR]
-    'total_available time': [total_available time]
-    'line_efficiency': [line_efficiency]
-    'loss_time': [loss_time]
-    'line_availability': [line_availability]
-    'SMH': [SMH]
-    'working_days': [working_days]
-    'line_formation_ratio': [line_formation_ratio]
+    'total_attendance_present': [total_attendance_present],
+    'Difference': [Difference],
+    'conveyor_speed': [conveyor_speed],
+    'BCT': [BCT],
+    'DRR': [DRR],
+    'total_available time': [total_available time],
+    'line_efficiency': [line_efficiency],
+    'loss_time': [loss_time],
+    'line_availability': [line_availability],
+    'SMH': [SMH],
+    'working_days': [working_days],
+    'line_formation_ratio': [line_formation_ratio],
     'min_efficiency': [min_efficiency]
 })
 
