@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 
 # Load the trained model
-with open('Line efficiency_rf_model.pkl', 'rb') as file:
+with open('updated_rf_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Title of the app
