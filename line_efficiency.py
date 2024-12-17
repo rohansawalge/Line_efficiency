@@ -1,16 +1,16 @@
 import streamlit as st
 import pandas as pd
-import joblib  # For loading the AI model
+import joblib
 
 # Load the trained AI model
-model = joblib.load("updated_rf_model.pkl")  # Replace with your actual model file name
+@st.cache_resource
+def load_model():
+    return joblib.load("updated_rf_model.pkl")
 
-# App title and description
+model = load_model()
+
 st.title("Line Efficiency Prediction Tool")
-st.write("""
-This app predicts **line efficiency** using a trained AI model. 
-Enter the required inputs below to get started.
-""")
+st.write("""This app predicts **line efficiency** using a trained AI model. Enter the required inputs below to get started.""")
 
 # Input features
 st.sidebar.header("Enter Input Features")
@@ -49,17 +49,19 @@ input_data = pd.DataFrame({
     'min_efficiency': [min_efficiency]
 })
 
-# Display the inputs for user confirmation
 st.write("### Input Data:")
 st.write(input_data)
 
-# Make predictions
+# Predict and display the result
 if st.button("Predict"):
     try:
-        prediction = model.predict(input_data)  # Ensure your model is compatible with this input format
+        prediction = model.predict(input_data)
+        st.write("### Debug: Raw Prediction Output")
+        st.write(prediction)
         st.success(f"Predicted Line Efficiency: {prediction[0]:.2f}%")
     except Exception as e:
         st.error(f"An error occurred during prediction: {e}")
+
 
 
 
