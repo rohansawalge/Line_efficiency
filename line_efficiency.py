@@ -36,10 +36,13 @@ for feature in feature_names:
 if st.button("Predict"):
     # Prepare input for prediction
     input_data = np.array([inputs[feature] for feature in feature_names]).reshape(1, -1)
-   
-    
-    # Predict and display result
-     st.success(f"Predicted Equivalent Line Efficiency: {prediction:.2f}")
+
+    # Predict using the model
+    prediction = rf_model.predict(input_data)[0]
+
+    # Display the result
+    st.success(f"Predicted Equivalent Line Efficiency: {prediction:.2f}")
+
 
 # Update Model Button
 if st.button("Update Model with Entered Data"):
