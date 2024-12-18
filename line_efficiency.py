@@ -1,11 +1,10 @@
 import streamlit as st
 import numpy as np
 import joblib
-from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
-# Load the pre-trained model and scaler
+# Load the pre-trained model
 @st.cache_resource
 def load_model():
     return joblib.load("updated_rf_model.pkl")
@@ -38,7 +37,7 @@ if st.button("Predict"):
     input_data = np.array([inputs[feature] for feature in feature_names]).reshape(1, -1)
 
     # Predict using the model
-    prediction = rf_model.predict(input_data)[0]
+    prediction = model.predict(input_data)[0]
 
     # Display the result
     st.success(f"Predicted Equivalent Line Efficiency: {prediction:.2f}")
@@ -48,10 +47,9 @@ if st.button("Predict"):
 if st.button("Update Model with Entered Data"):
     # Convert inputs to array for model retraining
     input_data = np.array([inputs[feature] for feature in feature_names]).reshape(1, -1)
-    input_scaled = scaler.transform(input_data)
-    
+
     # Add new data to the training set
-    new_X = input_scaled
+    new_X = input_data
     new_y = np.array([prediction])  # Use the predicted value as the target for retraining
     
     # Retrain the model with the new data
@@ -81,6 +79,7 @@ if st.button("Update Model with Entered Data"):
             file_name="updated_rf_model.pkl",
             mime="application/octet-stream"
         )
+
 
 
 
