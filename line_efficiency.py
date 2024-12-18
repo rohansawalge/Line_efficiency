@@ -36,7 +36,7 @@ for feature in feature_names:
 if st.button("Predict"):
     # Prepare input for prediction
     input_data = np.array([inputs[feature] for feature in feature_names]).reshape(1, -1)
-    input_scaled = scaler.transform(input_data)
+   
     
     # Predict and display result
     prediction = model.predict(input_scaled)[0]
