@@ -39,8 +39,7 @@ if st.button("Predict"):
    
     
     # Predict and display result
-    prediction = model.predict(input_scaled)[0]
-    st.success(f"Predicted Equivalent Line Efficiency: {prediction:.2f}")
+     st.success(f"Predicted Equivalent Line Efficiency: {prediction:.2f}")
 
 # Update Model Button
 if st.button("Update Model with Entered Data"):
