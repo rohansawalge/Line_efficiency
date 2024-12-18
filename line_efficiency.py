@@ -10,13 +10,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 def load_model():
     return joblib.load("updated_rf_model.pkl")
 
-@st.cache_resource
-def load_scaler():
-    # Dummy scaler initialization (replace if you have a pre-saved scaler)
-    return StandardScaler()
-
 model = load_model()
-scaler = load_scaler()
 
 # Feature names
 feature_names = [
