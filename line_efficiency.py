@@ -66,6 +66,9 @@ if st.button("Predict"):
         "Actual Rollout Quantity (n)": [actual_rollout_quantity]
     })
 
+    # Ensure the new data columns match the training data columns
+    new_data = new_data[X.columns]
+
     # Scale new input data
     new_data_scaled = scaler.transform(new_data)
 
@@ -89,6 +92,7 @@ if st.button("Retrain Model with New Data"):
 # Download updated model
 with open(model_filename, "rb") as f:
     st.download_button(label="Download Updated Model", data=f, file_name="updated_line_efficiency_model.pkl")
+
 
 
 
